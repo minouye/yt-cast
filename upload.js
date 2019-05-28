@@ -1,4 +1,6 @@
-require('dotenv').config()
+
+require('dotenv').config({path: __dirname + '/.env'})
+
 const puppeteer = require('puppeteer');
 
 (async () => {
@@ -24,7 +26,7 @@ const puppeteer = require('puppeteer');
  	await (resp = input.uploadFile(process.argv[2]))
 	await page.waitForFunction(episodeCount => {
  		return document.getElementsByClassName('usernewepisode').length > episodeCount
- 	}, {}, episodeCount)
+ 	}, { timeout: 360000 }, episodeCount)
 
 	await browser.close()
 

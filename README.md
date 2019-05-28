@@ -20,6 +20,15 @@ OVERCAST_EMAIL=[Your email address]
 OVERCAST_PASSWORD=[Your password]
 ```
 
+Create an alias to your .bash_profile file:
+
+
+```
+alias yt-cast="[Path to project]/yt-cast/run.sh [Path to downloads]"
+```
+
+Then run `source ~/.bash_profile`
+
 # Run
 
-`./run.sh [Youtube URL]`
+`yt-cast [Youtube URL]`

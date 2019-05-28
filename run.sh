@@ -1,6 +1,9 @@
 #!/bin/bash 
-url="$1"
+downloads_path="$1"
+url="$2"
 
-youtube-dl --extract-audio --audio-format mp3 --output '%(title)s.mp3' "$url"
+dir="$(cd "$(dirname "$0")" && pwd)"
+# bash ${__dir}/b.sh
+youtube-dl --extract-audio --audio-format mp3 --output "$downloads_path"'%(title)s.mp3' "$url"
 filename="$(youtube-dl --get-filename -o '%(title)s' $url)"
-node upload.js "$filename.mp3"
+node $dir/upload.js "$downloads_path$filename.mp3"
